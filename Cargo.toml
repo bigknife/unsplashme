@@ -1,0 +1,11 @@
+[package]
+name = "unsplashme"
+version = "0.1.0"
+authors = ["benny"]
+edition = "2018"
+
+[dependencies]
+dirs = "1.0"
+hyper = "0.12"
+hyper-tls = "0.3.1"
+serde_json = "1.0"

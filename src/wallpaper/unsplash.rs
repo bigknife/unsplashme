@@ -58,7 +58,7 @@ pub fn get_random_image(file: String) {
                     let v = chunk.by();
                     */
                     println!("try to write to {}", file);
-                    let mut f = File::create(file).expect("/tmp/a.jpg can't be written");
+                    let mut f = File::create(file).expect("desktop file can't be written");
                     res.into_body()
                         .map_err(|_| (()))
                         .for_each(move |chunk: Chunk| {

@@ -4,8 +4,17 @@ version = "0.1.0"
 authors = ["benny"]
 edition = "2018"
 
+[lib]
+name = "unsplashme"
+path = "src/lib.rs"
+
+[[bin]]
+name = "unsplashme"
+path = "src/main.rs"
+
 [dependencies]
 dirs = "1.0"
 hyper = "0.12"
 hyper-tls = "0.3.1"
 serde_json = "1.0"
+whoami = "0.5.0"

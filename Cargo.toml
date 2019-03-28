@@ -4,6 +4,14 @@ version = "0.1.0"
 authors = ["benny"]
 edition = "2018"
 
+[lib]
+name = "unsplashme"
+path = "src/lib.rs"
+
+[[bin]]
+name = "unsplashme"
+path = "src/main.rs"
+
 [dependencies]
 dirs = "1.0"
 hyper = "0.12"

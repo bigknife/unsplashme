@@ -4,8 +4,11 @@ use std::path::{Path, PathBuf};
 use std::str::FromStr;
 use std::string::String;
 
+pub mod gnome3;
 pub mod macos;
 pub mod unsplash;
+
+use whoami;
 
 /// download a wallpaper, save to a file.
 pub fn download_wallpaper(save_path: PathBuf) -> PathBuf {
@@ -20,7 +23,16 @@ pub fn download_wallpaper(save_path: PathBuf) -> PathBuf {
 
 /// set wallpaper
 pub fn set_wallpaper(wallpaper_path: PathBuf) -> PathBuf {
-    macos::set_wallpaper(wallpaper_path.to_str().unwrap());
+    match whoami::env() {
+        whoami::DesktopEnv::Mac => {
+            macos::set_wallpaper(wallpaper_path.to_str().unwrap());
+        }
+        whoami::DesktopEnv::Gnome => {
+            gnome3::set_wallpaper(wallpaper_path.to_str().unwrap());
+        }
+        _ => panic!("unsupported env"),
+    }
+
     wallpaper_path
 }
 
